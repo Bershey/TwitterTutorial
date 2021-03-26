@@ -17,6 +17,7 @@
 		8F6351D9260CB25600E2A219 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F6351D8260CB25600E2A219 /* Assets.xcassets */; };
 		8F6351DC260CB25600E2A219 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F6351DA260CB25600E2A219 /* LaunchScreen.storyboard */; };
 		8F6351ED260CBE8A00E2A219 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6351EC260CBE8A00E2A219 /* MainTabController.swift */; };
+		8FE5F2E8260E008700D7BABA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5F2E7260E008700D7BABA /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8F6351DB260CB25600E2A219 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F6351DD260CB25600E2A219 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F6351EC260CBE8A00E2A219 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		8FE5F2E7260E008700D7BABA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,7 @@
 				8F6351E5260CB30B00E2A219 /* ViewModel */,
 				8F6351E7260CB31200E2A219 /* Controller */,
 				8F6351E6260CB30F00E2A219 /* API */,
-				8F6351E4260CB2E500E2A219 /* Utilis */,
+				8F6351E4260CB2E500E2A219 /* Utils */,
 				8F6351CF260CB25400E2A219 /* AppDelegate.swift */,
 				8F6351D1260CB25400E2A219 /* SceneDelegate.swift */,
 				8F6351D5260CB25500E2A219 /* Main.storyboard */,
@@ -79,11 +81,12 @@
 			path = TwitterTutorial;
 			sourceTree = "<group>";
 		};
-		8F6351E4260CB2E500E2A219 /* Utilis */ = {
+		8F6351E4260CB2E500E2A219 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8FE5F2E7260E008700D7BABA /* Extensions.swift */,
 			);
-			path = Utilis;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		8F6351E5260CB30B00E2A219 /* ViewModel */ = {
@@ -200,6 +203,7 @@
 				8F059300260DCDB70075D425 /* NotificationsController.swift in Sources */,
 				8F059303260DCE460075D425 /* ConversationsController.swift in Sources */,
 				8F6351ED260CBE8A00E2A219 /* MainTabController.swift in Sources */,
+				8FE5F2E8260E008700D7BABA /* Extensions.swift in Sources */,
 				8F0592FD260DCD8D0075D425 /* ExploreController.swift in Sources */,
 				8F6351D0260CB25400E2A219 /* AppDelegate.swift in Sources */,
 				8F6351D2260CB25400E2A219 /* SceneDelegate.swift in Sources */,
