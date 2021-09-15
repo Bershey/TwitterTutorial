@@ -1,2 +1,0 @@
-# TwitterTutorial
-MVVMモデルによる開発。
