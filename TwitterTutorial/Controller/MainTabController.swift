@@ -13,6 +13,15 @@ class MainTabController: UITabBarController {
     
     //MARK: - Properties
     
+    var user: User? {
+        didSet {
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedController else { return }
+            
+            feed.user = user
+        }
+    }
+    
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
@@ -24,29 +33,35 @@ class MainTabController: UITabBarController {
     
     
     //MARK: Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        logUserOut()
+        //        logUserOut()
         view.backgroundColor = .twitterBlue
         authenticateUserAndConfigureUI()
     }
     
     //MARK:- API
     
+    func fetchUser() {
+        UserService.shared.fetchUser{user in
+            self.user = user
+        }
+    }
+    
     func authenticateUserAndConfigureUI() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
                 let nav = UINavigationController(rootViewController: LoginController())
-                            nav.modalPresentationStyle = .fullScreen
-                            self.present(nav, animated: true, completion: nil)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
             }
-
+            
             
         } else {
             configureViewControllers()
             configureUI()
-
+            fetchUser()
         }
     }
     
@@ -57,14 +72,14 @@ class MainTabController: UITabBarController {
             print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
         }
     }
-
+    
     
     // MARK: - Selectors
     @objc func actionButtonTapped () {
         print("ボタンが押されました")
     }
     
-//MARK: - Helpers
+    //MARK: - Helpers
     
     func configureUI() {
         view.addSubview(actionButton)
@@ -94,5 +109,5 @@ class MainTabController: UITabBarController {
         nav.navigationBar.barTintColor = .white
         return nav
     }
-
+    
 }

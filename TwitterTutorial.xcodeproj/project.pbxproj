@@ -15,6 +15,8 @@
 		8F31241F26F1C2CF00451F29 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F31241E26F1C2CF00451F29 /* GoogleService-Info.plist */; };
 		8F31242126F1D74300451F29 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31242026F1D74300451F29 /* Constants.swift */; };
 		8F31242326F1E71800451F29 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31242226F1E71800451F29 /* AuthService.swift */; };
+		8F31242526F2225900451F29 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31242426F2225900451F29 /* UserService.swift */; };
+		8F31242726F2373100451F29 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31242626F2373100451F29 /* User.swift */; };
 		8F6351D0260CB25400E2A219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6351CF260CB25400E2A219 /* AppDelegate.swift */; };
 		8F6351D2260CB25400E2A219 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6351D1260CB25400E2A219 /* SceneDelegate.swift */; };
 		8F6351D7260CB25500E2A219 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F6351D5260CB25500E2A219 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		8F31241E26F1C2CF00451F29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8F31242026F1D74300451F29 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F31242226F1E71800451F29 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8F31242426F2225900451F29 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		8F31242626F2373100451F29 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F6351CC260CB25400E2A219 /* TwitterTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6351CF260CB25400E2A219 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F6351D1260CB25400E2A219 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 		8F6351CE260CB25400E2A219 /* TwitterTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				8F6351E8260CB31500E2A219 /* View */,
 				8F6351E9260CB31900E2A219 /* Model */,
 				8F6351E5260CB30B00E2A219 /* ViewModel */,
 				8F6351E7260CB31200E2A219 /* Controller */,
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				8F31242226F1E71800451F29 /* AuthService.swift */,
+				8F31242426F2225900451F29 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -158,7 +164,7 @@
 		8F6351E9260CB31900E2A219 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8F6351E8260CB31500E2A219 /* View */,
+				8F31242626F2373100451F29 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F31242526F2225900451F29 /* UserService.swift in Sources */,
 				8F059300260DCDB70075D425 /* NotificationsController.swift in Sources */,
 				8F059303260DCE460075D425 /* ConversationsController.swift in Sources */,
 				8FE5F2F4260ECD8500D7BABA /* Utilities.swift in Sources */,
@@ -302,6 +309,7 @@
 				8FE5F2E8260E008700D7BABA /* Extensions.swift in Sources */,
 				8FE5F2ED260EB3C700D7BABA /* LoginController.swift in Sources */,
 				8F31242326F1E71800451F29 /* AuthService.swift in Sources */,
+				8F31242726F2373100451F29 /* User.swift in Sources */,
 				8F0592FD260DCD8D0075D425 /* ExploreController.swift in Sources */,
 				8F6351D0260CB25400E2A219 /* AppDelegate.swift in Sources */,
 				8F6351D2260CB25400E2A219 /* SceneDelegate.swift in Sources */,
@@ -461,7 +469,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.TwitterTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomato.TwitterTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,7 +488,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.TwitterTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomato.TwitterTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
