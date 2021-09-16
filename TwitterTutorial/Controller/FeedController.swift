@@ -24,7 +24,16 @@ class FeedController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .red
         configureUI()
+        fetchTweets()
     }
+    
+    //MARK:- API
+    func fetchTweets() {
+        TweetService.shared.fetchTweets { tweets in
+            print("DEBUG: Tweets are\(tweets)")
+        }
+    }
+
     
     //MARK: - Helpers
     func configureUI() {
