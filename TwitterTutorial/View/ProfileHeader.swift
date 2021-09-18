@@ -10,6 +10,10 @@ import UIKit
 class ProfileHeader: UICollectionReusableView {
     //MARK:- Properties
     
+    var user :User? {
+        didSet { configure() }
+    }
+    
     private let filterBar = ProfileFilterView()
 
     private lazy var containerView: UIView = {
@@ -80,7 +84,6 @@ class ProfileHeader: UICollectionReusableView {
     
     private let followingLabel: UILabel = {
       let label = UILabel()
-        label.text = "0 Following"
         let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowersTapped))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(followTap)
@@ -89,7 +92,6 @@ class ProfileHeader: UICollectionReusableView {
     
     let followersLabel: UILabel = {
         let label = UILabel()
-        label.text = "2 Followers"
         let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowingtapped))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(followTap)
@@ -163,6 +165,19 @@ class ProfileHeader: UICollectionReusableView {
     @objc func handleFollowingtapped() {
         
     }
+    
+    //MARK:- Helpers
+    func configure() {
+        guard let user = user else { return }
+        let viewModel = ProfileHeaderViewModel(user: user)
+        profileImageView.sd_setImage(with: user.profileImageUrl)
+        
+        editProfileFollowButton.setTitle(viewModel.actionButtonTitle, for: .normal)
+        followingLabel.attributedText = viewModel.followersString
+        followersLabel.attributedText = viewModel.followersString
+        
+    }
+
   
 }
 

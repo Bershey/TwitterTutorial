@@ -84,8 +84,8 @@ extension FeedController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
-        navigationController?.pushViewController(controller, animated: true)
+//        let controller = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
+//        navigationController?.pushViewController(controller, animated: true)
     }
 }
 //MARK:- UICollectionViewDelegateFlowLayout
@@ -97,8 +97,9 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 //MARK:- TweetCellDelegate
 
 extension FeedController: TweetCellDelegate {
-    func handleProfileImageTapped() {
-        let controller = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
+    func handleProfileImageTapped(_ cell: TweetCell) {
+        guard let user = cell.tweet?.user else { return }
+        let controller = ProfileController(user: user)
         navigationController?.pushViewController(controller, animated: true)
     }
     
