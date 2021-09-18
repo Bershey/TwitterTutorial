@@ -78,6 +78,24 @@ class ProfileHeader: UICollectionReusableView {
         return view
     }()
     
+    private let followingLabel: UILabel = {
+      let label = UILabel()
+        label.text = "0 Following"
+        let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowersTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(followTap)
+        return label
+    }()
+    
+    let followersLabel: UILabel = {
+        let label = UILabel()
+        label.text = "2 Followers"
+        let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowingtapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(followTap)
+        return label
+    }()
+    
     //MARK:- LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -106,6 +124,16 @@ class ProfileHeader: UICollectionReusableView {
         addSubview(userDetailStack)
         userDetailStack.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 12, paddingLeft: 12)
         
+        let followStack = UIStackView(arrangedSubviews: [followingLabel,followersLabel])
+        followStack.axis = .horizontal
+        followStack.spacing = 8
+        followStack.distribution = .fillProportionally
+        
+        addSubview(followStack)
+        followStack.anchor(top: userDetailStack.bottomAnchor, left: leftAnchor,right: rightAnchor,paddingTop: 8, paddingLeft: 12,paddingRight: 12)
+        
+      
+        
         addSubview(filterBar)
         filterBar.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 50)
         
@@ -125,6 +153,14 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     @objc func handleEditProfileFollow() {
+        
+    }
+    
+    @objc func handleFollowersTapped() {
+        
+    }
+    
+    @objc func handleFollowingtapped() {
         
     }
   
