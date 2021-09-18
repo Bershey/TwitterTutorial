@@ -41,10 +41,7 @@ class MainTabController: UITabBarController {
         authenticateUserAndConfigureUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
-    }
+
     
     //MARK:- API
     
