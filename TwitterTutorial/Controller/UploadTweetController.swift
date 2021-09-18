@@ -10,8 +10,8 @@ import UIKit
 class UploadTweetController: UIViewController {
     
     //MARK:- Properties
-
     private let user: User
+    
     private lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .twitterBlue
@@ -19,12 +19,9 @@ class UploadTweetController: UIViewController {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(.white, for: .normal)
-        
         button.frame = CGRect(x: 0, y: 0, width: 64, height: 32)
         button.layer.cornerRadius = 32/2
-        
         button.addTarget(self, action: #selector(handleUploadTweet), for: .touchUpInside)
-        
         return button
     }()
     

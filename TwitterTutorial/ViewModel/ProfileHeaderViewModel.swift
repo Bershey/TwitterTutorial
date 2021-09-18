@@ -25,8 +25,6 @@ enum ProfileFilterOptions: Int, CaseIterable {
 
 struct ProfileHeaderViewModel {
     
-    
-    
     private let user:User
     
     var followersString: NSAttributedString? {
