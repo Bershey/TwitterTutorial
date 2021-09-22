@@ -24,7 +24,7 @@ class FeedController: UICollectionViewController {
     }
     
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class FeedController: UICollectionViewController {
     }
     
 }
-//MARK:- UICollectionViewDelegate/DataSource
+//MARK: - UICollectionViewDelegate/DataSource
 
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -88,13 +88,15 @@ extension FeedController {
         navigationController?.pushViewController(controller, animated: true)
     }
 }
-//MARK:- UICollectionViewDelegateFlowLayout
+//MARK: - UICollectionViewDelegateFlowLayout
 extension FeedController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+        let viewModel = TweetViewModel(tweet: tweets[indexPath.row])
+        let height = viewModel.size(forWidth: view.frame.width).height
+        return CGSize(width: view.frame.width, height: height + 72)
     }
 }
-//MARK:- TweetCellDelegate
+//MARK: - TweetCellDelegate
 
 extension FeedController: TweetCellDelegate {
     func handleProfileImageTapped(_ cell: TweetCell) {

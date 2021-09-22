@@ -11,7 +11,7 @@ private let reuseIdentifier = "TweetCell"
 private let headerIdentifier = "TweetHeader"
 
 class TweetController: UICollectionViewController {
-    //MARK:- Properties
+    //MARK: - Properties
     private let tweet: Tweet
     
     init(tweet: Tweet) {
@@ -23,7 +23,7 @@ class TweetController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK:- Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DEBUG: tweet caption is \(tweet.caption)")
@@ -40,7 +40,7 @@ class TweetController: UICollectionViewController {
 
 }
 
-//MARK:- UICollectionViewDataSource
+//MARK: - UICollectionViewDataSource
 
 extension TweetController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -55,6 +55,7 @@ extension TweetController {
 extension TweetController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as!  TweetHeader
+        header.tweet = tweet
         return header
     }
 }
@@ -62,10 +63,12 @@ extension TweetController {
 
 
 
-//MARK:- UICollectionViewDelegateFlowLayout
+//MARK: - UICollectionViewDelegateFlowLayout
 extension TweetController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 350)
+        let viewModel = TweetViewModel(tweet: tweet)
+        let captionHeight = viewModel.size(forWidth: view.frame.width).height
+        return CGSize(width: view.frame.width, height: captionHeight + 260)
     }
     
     

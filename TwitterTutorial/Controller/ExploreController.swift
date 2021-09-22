@@ -24,7 +24,7 @@ class ExploreController: UITableViewController {
     
     private let searchController = UISearchController(searchResultsController: nil)
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class ExploreController: UITableViewController {
     }
     
 }
-//MARK:- UITableViewDelegate/ DataSource
+//MARK: - UITableViewDelegate/ DataSource
 
 extension ExploreController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,7 +91,7 @@ extension ExploreController {
     }
     
 }
-//MARK:- UISearchResultsUpdating
+//MARK: - UISearchResultsUpdating
 
 extension ExploreController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
@@ -101,3 +101,4 @@ extension ExploreController: UISearchResultsUpdating {
     
     
 }
+

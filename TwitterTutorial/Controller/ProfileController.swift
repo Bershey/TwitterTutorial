@@ -11,14 +11,14 @@ private let reuseIdentifier = "TweetCell"
 private let headerIdentifier = "ProfileHeader"
 
 class ProfileController: UICollectionViewController {
-    //MARK:- Properties
+    //MARK: - Properties
     private var user: User
     
     private var tweets = [Tweet]()  {
         didSet { collectionView.reloadData() }
     }
     
-    //MARK:- LifeCycle
+    //MARK: - LifeCycle
     
     init(user:User) {
         self.user = user
@@ -69,7 +69,7 @@ class ProfileController: UICollectionViewController {
     }
     
     
-    //MARK:- Helpers
+    //MARK: - Helpers
     func configureCollectionView() {
         collectionView.backgroundColor = .white
         collectionView.contentInsetAdjustmentBehavior = .never
@@ -93,7 +93,7 @@ extension ProfileController {
 }
 
 
-//MARK:- UICollectionViewDelegate
+//MARK: - UICollectionViewDelegate
 
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -104,7 +104,7 @@ extension ProfileController {
     }
 }
 
-//MARK:- UICollectionViewDelegateFlowLayout
+//MARK: - UICollectionViewDelegateFlowLayout
 extension ProfileController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 350)
@@ -116,7 +116,7 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//MARK:- ProfileHeaderDelegate
+//MARK: - ProfileHeaderDelegate
 
 extension ProfileController: ProfileHeaderDelegate {
     func handleEditProfileFollow(_ header: ProfileHeader) {
