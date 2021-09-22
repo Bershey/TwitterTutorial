@@ -64,11 +64,11 @@ class ProfileController: UICollectionViewController {
     func fetchUserStatus() {
         UserService.shared.fetchUserStatus(uid: user.uid) { stats in
             self.user.stats = stats
-                self.collectionView.reloadData()
+            self.collectionView.reloadData()
         }
     }
-
-
+    
+    
     //MARK:- Helpers
     func configureCollectionView() {
         collectionView.backgroundColor = .white
@@ -76,8 +76,8 @@ class ProfileController: UICollectionViewController {
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
     }
-
-
+    
+    
 }
 
 extension ProfileController {
@@ -138,8 +138,8 @@ extension ProfileController: ProfileHeaderDelegate {
             }
         }
         
-       
-       
+        
+        
     }
     
     func handleDismissal() {

@@ -45,7 +45,7 @@ class FeedController: UICollectionViewController {
             self.tweets = tweets
         }
     }
-
+    
     
     //MARK: - Helpers
     func configureUI() {
@@ -56,7 +56,7 @@ class FeedController: UICollectionViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.setDimensions(width: 44, height: 44)
         navigationItem.titleView = imageView
-            }
+    }
     
     func configureLeftBarButton() {
         guard let user = user else { return }
@@ -78,14 +78,14 @@ extension FeedController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TweetCell
-        cell.delegate = self
+        cell.delegate = self        
         cell.tweet = tweets[indexPath.row]
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let controller = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
-//        navigationController?.pushViewController(controller, animated: true)
+        let controller = TweetController(tweet: tweets[indexPath.row])
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 //MARK:- UICollectionViewDelegateFlowLayout
