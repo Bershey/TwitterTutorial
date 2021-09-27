@@ -45,6 +45,7 @@
 		8FE5F2ED260EB3C700D7BABA /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5F2EC260EB3C700D7BABA /* LoginController.swift */; };
 		8FE5F2F1260EB4C500D7BABA /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5F2F0260EB4C500D7BABA /* RegistrationController.swift */; };
 		8FE5F2F4260ECD8500D7BABA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5F2F3260ECD8500D7BABA /* Utilities.swift */; };
+		8FEAF8082701B1DC005C1F35 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAF8072701B1DC005C1F35 /* README.md */; };
 		8FF50EAA26F5EFB700FC4759 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF50EA926F5EFB700FC4759 /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		8FE5F2EC260EB3C700D7BABA /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		8FE5F2F0260EB4C500D7BABA /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		8FE5F2F3260ECD8500D7BABA /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		8FEAF8072701B1DC005C1F35 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8FF50EA926F5EFB700FC4759 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		F6949B0EC5C521E5BBD80E94 /* Pods-TwitterTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterTutorial.debug.xcconfig"; path = "Target Support Files/Pods-TwitterTutorial/Pods-TwitterTutorial.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 		8F6351C3260CB25400E2A219 = {
 			isa = PBXGroup;
 			children = (
+				8FEAF8072701B1DC005C1F35 /* README.md */,
 				8F6351CE260CB25400E2A219 /* TwitterTutorial */,
 				8F6351CD260CB25400E2A219 /* Products */,
 				6B236099EBA6086215B3F23F /* Pods */,
@@ -304,6 +307,7 @@
 			files = (
 				8F6351DC260CB25600E2A219 /* LaunchScreen.storyboard in Resources */,
 				8F31241F26F1C2CF00451F29 /* GoogleService-Info.plist in Resources */,
+				8FEAF8082701B1DC005C1F35 /* README.md in Resources */,
 				8F6351D9260CB25600E2A219 /* Assets.xcassets in Resources */,
 				8F6351D7260CB25500E2A219 /* Main.storyboard in Resources */,
 			);
