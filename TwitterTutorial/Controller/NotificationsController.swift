@@ -20,7 +20,7 @@ class NotificationsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        fetchNotification()
+        fetchNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,22 +28,48 @@ class NotificationsController: UITableViewController {
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barStyle = .default
     }
+
+    // MARK: - Selectors
+
+    @objc func handleReflesh() {
+        fetchNotifications()
+    }
+
     
     //MARK: - API
-    func fetchNotification() {
+    func fetchNotifications() {
+        refreshControl?.beginRefreshing()
         NotificationService.shared.fetchNotifications { notifications in
+            self.refreshControl?.endRefreshing()
             self.notifications = notifications
+            self.checkIfUserIsFollowed(notifications: notifications)
+        }
+    }
+
+    func checkIfUserIsFollowed(notifications: [Notification]) {
+        for (index, notification) in notifications.enumerated() {
+            if case .follow = notification.type {
+                let user = notification.user
+
+                UserService.shared.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
+                    self.notifications[index].user.isFollowed = isFollowed
+                }
+            }
         }
     }
 
     
-//MARK: - Helpers
+    //MARK: - Helpers
     func configureUI() {
         view.backgroundColor = .white
         navigationItem.title = "Notifications"
         tableView.register(NotificationCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
+
+        let refleshControl = UIRefreshControl()
+        tableView.refreshControl = refleshControl
+        refleshControl.addTarget(self, action: #selector(handleReflesh), for: .valueChanged)
     }
 }
 
@@ -78,11 +104,24 @@ extension NotificationsController {
 //MARK: - NotificationCellDelegate
 
 extension NotificationsController: NotificationCellDelegate {
+    func didTapFollow(_ cell: NotificationCell) {
+        guard let user = cell.notification?.user else { return }
+
+        if user.isFollowed {
+            UserService.shared.unfollowUser(uid: user.uid) { err, ref in
+                cell.notification?.user.isFollowed = false
+            }
+        } else {
+            UserService.shared.followUser(uid: user.uid) { err, ref in
+                cell.notification?.user.isFollowed = true
+            }
+        }
+    }
+
     func didTapProfileImage(_ cell: NotificationCell) {
         guard let user = cell.notification?.user else { return }
         let controller = ProfileController(user: user)
-        navigationController?.pushViewController(controller, animated: true)
-                
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     
